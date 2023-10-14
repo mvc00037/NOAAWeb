@@ -27,4 +27,4 @@ def prediction(request,idSat ):
         sat_data.append(satResponse)
     context = {'sat_data': sat_data}
 
-    return render(request, 'render/predictionTable.html.html', context)
+    return render(request, 'render/predictionTable.html', context)

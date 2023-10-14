@@ -1,6 +1,6 @@
 # Create your views here.
 from django.shortcuts import render
-import requests, datetime
+import requests, datetime, pytz
 
 def index(request):
     return render(request, 'render/index.html', {})
@@ -25,6 +25,6 @@ def prediction(request,idSat ):
             "maxEl": r['passes'][i]['maxEl'],
         }
         sat_data.append(satResponse)
-    context = {'sat_data': sat_data, "sat": sat}
+    context = {'sat_data': sat_data}
 
     return render(request, 'noaaWebApp/prueba.html', context)

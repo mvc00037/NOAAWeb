@@ -1,8 +1,10 @@
 # Create your views here.
 from django.shortcuts import render
 import requests, datetime, pytz
+from .models import imagenApt
 
 def index(request):
+    imagenes = imagenApt.objects.all()
     return render(request, 'render/index.html', {})
 
 def prediction(request,idSat ):

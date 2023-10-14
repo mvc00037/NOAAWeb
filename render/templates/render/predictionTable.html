@@ -1,0 +1,32 @@
+
+{% extends 'render/base.html' %}
+
+{% block title %}  {{ sat_data.name }}  {% endblock %}
+
+    {%  block nav %}
+        {% for sat in  sat %}
+            <li class="nav-item">
+                <a class="nav-link" href = "{% url 'predictionTable' sat_data.satId  %}">  {{ sat.name  }}  </a>
+            </li>
+        {% endfor %}
+    {% endblock %}
+
+{% block content %}
+        {% for sat_data in sat_data %}
+            {% ifchanged sat_data.satname %}
+                    <h1 class = 'text-center text-light mt-3'>{{ sat_data.satname }}</h1>
+                <p> En la siquiente tabla vemos la previsión a diez dias de pases satelitates con elevación superior a 40º que pasan por la ubicacion de recepción. </p>
+            {% endifchanged %}
+            <table class="table table-sm table-dark ">
+              <tbody>
+                <tr>
+                  <td class="card-text">NoradId : {{sat_data.satId}}</td>
+                  <td class="card-text">Azimut Inicial: {{sat_data.startAz}}</td>
+                    <td class="card-text"> Azimut Final : {{sat_data.endAz}}</td>
+                    <td class="card-text">Hora :{{sat_data.startUTC}}</td>
+                    <td class="card-text">Maxima Elevación :{{sat_data.maxEl}} </td>
+                </tr>
+            </table>
+{% endfor %}
+
+{% endblock %}

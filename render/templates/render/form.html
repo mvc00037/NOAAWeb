@@ -1,8 +1,37 @@
 {% extends 'render/base.html' %}
-{% block content  %}
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Cargar</button>
-    </form>
-{% endblock %}
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+
+  <div class="form-group">
+    {{ form.Nombre.label_tag }}
+    {{ form.Nombre }}
+    {{ form.Nombre.errors }}
+  </div>
+
+  <div class="form-group">
+    {{ form.elevacion.label_tag }}
+    {{ form.elevacion }}
+    {{ form.elevacion.errors }}
+  </div>
+
+  <div class="form-group">
+    {{ form.fecha.label_tag }}
+    {{ form.fecha }}
+    {{ form.fecha.errors }}
+  </div>
+
+  <div class="form-group">
+    {{ form.imagen.label_tag }}
+    {{ form.imagen }}
+    {{ form.imagen.errors }}
+  </div>
+
+  <div class="form-group">
+    {{ form.audio.label_tag }}
+    {{ form.audio }}
+    {{ form.audio.errors }}
+  </div>
+
+  <button type="submit">Cargar</button>
+</form>

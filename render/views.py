@@ -1,7 +1,9 @@
 # Create your views here.
 from django.shortcuts import render
 import requests, datetime, pytz
-from .models import imagenApt
+from .models import imagenApt,imagenAptForm
+
+
 
 def index(request):
     imagenes = imagenApt.objects.all()
@@ -34,3 +36,12 @@ def prediction(request,idSat ):
     context = {'sat_data': sat_data}
 
     return render(request, 'render/predictionTable.html', context)
+
+def cargar_imagen_audio(request):
+    if request.method == 'POST':
+        form = imagenAptForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+    else:
+        form = imagenAptForm()
+    return render(request, 'form.html', {'form': form})

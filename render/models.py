@@ -1,5 +1,5 @@
 from django.db import models
-
+from django import forms
 # Create your models here.
 
 class imagenApt(models.Model):
@@ -13,3 +13,8 @@ class imagenApt(models.Model):
         verbose_name = 'ImagenApt'
     def _str_(self):
        return self.Nombre
+
+class imagenAptForm(forms.ModelForm):
+    class Meta:
+        model = imagenApt
+        fields = ['Nombre', 'elevacion', 'fecha', 'imagen', 'audio']

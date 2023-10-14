@@ -5,7 +5,8 @@ from .models import imagenApt
 
 def index(request):
     imagenes = imagenApt.objects.all()
-    return render(request, 'render/index.html', {})
+    context=  { "imagenes":imagenes}
+    return render(request, 'render/index.html', context)
 
 def prediction(request,idSat ):
     sat_data = []

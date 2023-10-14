@@ -3,10 +3,13 @@ from django.shortcuts import render
 import requests, datetime, pytz
 from .models import imagenApt
 
+#def index(request):
+#    imagenes = imagenApt.objects.all()
+#    context=  { "imagenes":imagenes}
+#    return render(request, 'render/index.html', context)
+
 def index(request):
-    imagenes = imagenApt.objects.all()
-    context=  { "imagenes":imagenes}
-    return render(request, 'render/index.html', context)
+    return render(request, 'render/index.html', {})
 
 def prediction(request,idSat ):
     sat_data = []

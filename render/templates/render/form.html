@@ -1,36 +1,51 @@
 {% extends 'render/baseForm.html' %}
 {% block content %}
-
+    <p></p>
+    <p></p>
+    <p></p>
+    <h1 class="display-1 text-dark"> Formulario para la carga de imagenes</h1>
+    <p></p>
+    <p></p>
+    <p></p>
 <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate >
     {% csrf_token %}
 
     {{ form.non_field_errors }}
 
-    <div class="text-black mb-3" >
+    <div class="form-group form-control-lg text-xl-start" >
         {{ form.Nombre.label_tag }}
         {{ form.Nombre }}
     </div>
 
-    <div class="text-black mb-3">
+        <div class="form-group form-control-lg text-xl-start" >
+
         {{ form.elevacion.label_tag }}
         {{ form.elevacion }}
     </div>
 
-    <div class="text-black mb-3">
+        <div class="form-group form-control-lg text-xl-start" >
+
         {{ form.fecha.label_tag }}
         {{ form.fecha }}
     </div>
 
-    <div class="text-dark mb-3">
+        <div class="form-group form-control-lg text-xl-start" >
+
         {{ form.imagen.label_tag }}
         {{ form.imagen }}
     </div>
 
-    <div class="text-black-50 mb-3">
+    <div class="form-group form-control-lg text-xl-start" >
         {{ form.audio.label_tag }}
         {{ form.audio }}
     </div>
 
-    <button type="submit" class="btn btn-dark">Signup</button>
+    <div class="form-group form-control-lg text-xl-start" >
+        <button type="submit" class="btn btn-dark">Signup</button>
+    </div>
+
+    <p></p>
+    <p></p>
+    <p></p>
 </form>
 {% endblock %}

@@ -19,15 +19,10 @@
         <a class="navbar-brand " href="{% url 'prediction' 25338 %}">NOAA-15</a>
         <a class="navbar-brand " href="{% url 'prediction' 28654 %}">NOAA-18</a>
         <a class="navbar-brand " href="{% url 'prediction' 33591 %}">NOAA-19</a>
+         <a class="navbar-brand " href="{% url 'form'  %}">Form</a>
     </div>
   </div>
 </nav>
-
-<form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Cargar</button>
- </form>
 
 <div class = "container text-center  bg-dark mt-5" >
     <div class="card-body">

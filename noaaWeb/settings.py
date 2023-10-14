@@ -88,13 +88,15 @@ WSGI_APPLICATION = 'noaaWeb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-     'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:postgres@localhost:5432/postgres',
-        conn_max_age=600
-    )
-}
+#DATABASES = {
+#     'default': dj_database_url.config(
+#        # Feel free to alter this value to suit your needs.
+#        default='postgresql://postgres:postgres@localhost:5432/postgres',
+#        conn_max_age=600
+#    )
+#}
+DATABASES =  []
+DATABASES["default"] = dj_database_url.parse("postgres://noaawebdatabase_user:cc7vcBmg94O2gvHvzX4lIQlZWg1TZCUJ@dpg-ckl76a3j89us73cq6n70-a.frankfurt-postgres.render.com/noaawebdatabase")
 
 
 # Password validation

@@ -95,7 +95,12 @@ WSGI_APPLICATION = 'noaaWeb.wsgi.application'
 #        conn_max_age=600
 #    )
 #}
-DATABASES =  []
+DATABASES = {
+    'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 DATABASES["default"] = dj_database_url.parse("postgres://noaawebdatabase_user:cc7vcBmg94O2gvHvzX4lIQlZWg1TZCUJ@dpg-ckl76a3j89us73cq6n70-a.frankfurt-postgres.render.com/noaawebdatabase")
 
 

@@ -42,6 +42,9 @@ def cargar_imagen_audio(request):
         form = imagenAptForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            imagenes = imagenApt.objects.all()
+            context = {"imagenes": imagenes}
+            return render(request, 'render/index.html', context)
     else:
         form = imagenAptForm()
     return render(request, 'render/form.html', {'form': form})

@@ -6,7 +6,7 @@ class imagenApt(models.Model):
     Nombre = models.CharField(max_length=60)
     elevacion = models.DecimalField(max_digits=5,decimal_places=2)
     fecha =  models.DateField(auto_now_add=False)
-    imagen = models.ImageField(upload_to="images/")
+    imagen = models.ImageField(upload_to="render/static/render/images/")
     audio = models.FileField(upload_to="audio/", null=True)
 
     class Meta :
